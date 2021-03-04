@@ -1,0 +1,88 @@
+<title>ViaCEP Webservice</title>
+
+<!-- utf8-->
+<meta charset="utf-8" />
+
+<!--bootstrap css -->
+<link href="libs/bootstrap-5.0.0-beta2-dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- estilo próprio -->
+<link href="libs/estilo.css" rel="stylesheet">
+
+<!-- inicio projeto -->
+<div class="container">
+
+    <h1 class="mb-3">viacep.com.br ou Base</h1>
+
+    <!-- CEP -->
+    <div class="col-md-12">
+
+        <!-- input CEP -->
+        <div class="form-floating mb-3">
+            <input class="form-control" placeholder="00000-000" id="cep" onblur="pesquisacep(this.value);" maxlength="9" onkeypress="return mascaraCEP(cep)">
+            <label for="cep">Digite o CEP</label>
+        </div>
+
+        <!-- mensagem amigavel de inválido ou inexistente -->
+        <div class="invalid-feedback" id="div-cep-invalido" style="display: none; padding-bottom: 20px">
+            CEP inválido ou não encontrado, revise e tente novamente
+        </div>
+    </div>
+
+    <!-- Estado -->
+    <div class="col-md-12">
+        <div class="form-floating mb-3">
+            <input class="form-control" id="uf" readonly >
+            <label for="uf">Estado</label>
+        </div>
+    </div>
+
+    <!-- Cidade -->
+    <div class="col-md-12">
+        <div class="form-floating mb-3">
+            <input class="form-control" id="cidade" readonly>
+            <label for="cidade">Cidade</label>
+        </div>
+    </div>
+
+    <!-- Bairro -->
+    <div class="col-md-12">
+
+        <!-- input Bairro -->
+        <div class="form-floating mb-3">
+            <input class="form-control" id="bairro" readonly>
+            <label for="bairro">Bairro</label>
+        </div>
+
+        <!-- mensagem amigavel para informar manualmente -->
+        <div class="invalid-feedback" id="div-bairro-invalido" style="display: none; padding-bottom: 20px">
+            Bairro não encontrado, informar manualmente
+        </div>
+    </div>
+
+    <!-- Endereço -->
+    <div class="col-md-12">
+
+        <!-- input rua -->
+        <div class="form-floating mb-3">
+            <input class="form-control" id="rua" readonly>
+            <label for="rua">Endereço</label>
+        </div>
+
+        <!-- mensagem amigavel para informar manualmente -->
+        <div class="invalid-feedback" id="div-rua-invalido" style="display: none; padding-bottom: 20px">
+            Endereço não encontrado, informar manualmente
+        </div>
+    </div>
+
+    <!-- loading -->
+    <div id="loader" class="loader"></div>
+
+</div>
+<!-- fim projeto -->
+
+<!-- js geral -->
+<script src="libs/script.js"></script>
+<script src="cep.js"></script>
+
+<script> loadingHide();</script>
